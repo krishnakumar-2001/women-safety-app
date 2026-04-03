@@ -1,0 +1,59 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.build/
+.buildlog/
+.history
+.svn/
+.swiftpm/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# VS Code
+.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins-dependencies
+.flutter-plugins
+.pub-cache/
+.pub/
+/build/
+/coverage/
+devtools_options.yaml
+
+# Android Studio & Gradle
+/android/build/
+/android/app/build/
+/android/app/debug
+/android/app/profile
+/android/app/release
+.gradle/
+**/android/.gradle/
+
+# Backend & Node.js
+backend/node_modules/
+node_modules/
+backend/images/*
+!backend/images/.gitkeep
+
+# Temporary / sensitive files
+ip.txt
+*.local
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
