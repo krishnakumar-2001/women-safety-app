@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "210957965133",
+    "project_id": "wsa-new",
+    "storage_bucket": "wsa-new.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:210957965133:android:0d27ba9f5149294f860904",
+        "android_client_info": {
+          "package_name": "com.example.wsa_new"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxY_ge5YwiE1zkmo9sLlQhT6oeSw7VZto"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
