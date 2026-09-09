@@ -151,12 +151,39 @@ app.post('/api/forgot-password', async (req, res) => {
 
 // Login
 app.post('/api/login', async (req, res) => {
-  const { phone, password } = req.body;
-  const user = await User.findOne({ phone, password });
-  if (user) {
-    res.send(user);
-  } else {
-    res.status(401).send({ error: 'Auth failed' });
+  try {
+    let { phone, password } = req.body;
+    if (!phone || !password) {
+      return res.status(401).send({ error: 'Auth failed' });
+    }
+    phone = phone.toString().trim();
+    const rawDigits = phone.replace(/\D/g, '');
+    const last10 = rawDigits.length >= 10 ? rawDigits.slice(-10) : rawDigits;
+
+    const user = await User.findOne({
+      $and: [
+        {
+          $or: [
+            { phone: phone },
+            { phone: `+91${last10}` },
+            { phone: `+91 ${last10}` },
+            { phone: last10 }
+          ]
+        },
+        { password: password }
+      ]
+    });
+
+    if (user) {
+      console.log(`✅ Login Success for user: ${user.name} (${user.phone})`);
+      res.send(user);
+    } else {
+      console.log(`❌ Auth failed for phone: ${phone}`);
+      res.status(401).send({ error: 'Auth failed' });
+    }
+  } catch (e) {
+    console.error("Login Error:", e);
+    res.status(500).send({ error: 'Server error during login' });
   }
 });
 

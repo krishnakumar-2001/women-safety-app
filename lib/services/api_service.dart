@@ -7,8 +7,8 @@ import 'package:wsa_new/models/guardian_contact.dart';
 class ApiService {
   static final ApiService _instance = ApiService._internal();
 
-  // Use 10.0.2.2 for Android Emulator, or your Local IP for physical devices
-  static const String baseUrl = "http://10.233.219.21:3000/api";
+  // Use 127.0.0.1 with adb reverse tcp:3000 tcp:3000, or Wi-Fi IP 192.168.1.87
+  static const String baseUrl = "http://127.0.0.1:3000/api";
 
   factory ApiService() => _instance;
   ApiService._internal();
